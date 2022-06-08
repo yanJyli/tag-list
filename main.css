@@ -1,0 +1,41 @@
+body {
+  background-color: #ffd78a;
+  font-family: sans-serif;
+  box-sizing: content-box;
+}
+
+.container {
+  margin: 0 auto;
+  display: block;
+  max-width: 400px;
+  
+}
+h1 {
+  text-align: center;
+}
+
+.input {
+  padding: 10px;
+  border: none;
+  min-width: 300px;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+}
+
+.tag_item {
+  max-width: max-content;
+  display: flex;
+  place-items: center;
+  
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(105, 220, 105);
+  border-radius: 5px;  
+}
+
+
