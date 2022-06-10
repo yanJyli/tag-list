@@ -1,23 +1,32 @@
 body {
   background-color: #ffd78a;
-  font-family: sans-serif;
-  box-sizing: content-box;
+  font-family: sans-serif;  
 }
 
 .container {
   margin: 0 auto;
-  display: block;
-  max-width: 400px;
-  
+  max-width: 400px;  
 }
+
 h1 {
   text-align: center;
+}
+
+p {
+  font-size: small;
 }
 
 .input {
   padding: 10px;
   border: none;
   min-width: 300px;
+  font-size: large;
+}
+
+.label {
+  font-size: large;
+  margin: 10px;
+  font-weight: 700;
 }
 
 .button {
@@ -31,11 +40,14 @@ h1 {
   max-width: max-content;
   display: flex;
   place-items: center;
-  
-  padding: 10px;
+  padding: 0px 10px;
   margin: 10px;
   background-color: rgb(105, 220, 105);
   border-radius: 5px;  
 }
 
-
+.button__remove {
+  background-color: #fee0a8;
+  border-radius: 5px; 
+  border: none; 
+}

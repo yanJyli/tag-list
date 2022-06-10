@@ -15,9 +15,10 @@ function displayTagList() {
   tagList.forEach(function (item, i) {
     displayTag += `
     <li class="tag_item">
+    <p>readonly</p>
     <input type="checkbox" id='item_${i}' ${item.readonly ? "checked" : ""}/>
-    <label for='item_${i}'>${item.tag}</label>
-    <button id='button_${i}' onclick="removeTag(${i})">x</button>
+    <label for='item_${i}' class="label">${item.tag}</label>
+    <button id='button_${i}' onclick="removeTag(${i})" class="button__remove">✖</button>
     </li>
     `;
     tag.innerHTML = displayTag;
@@ -40,12 +41,16 @@ tag.addEventListener("change", (event) => {
   let forLabel = document.querySelector("[for=" + idInput + "]");
   let valueLabel = forLabel.innerHTML;
 
-  tagList.forEach(function (item) {
+  tagList.forEach(function (item, i) {
     if (item.tag === valueLabel) {
       item.readonly = !item.readonly;
+
+      let button = document.querySelectorAll("button");
+      if (item.readonly === true) {
+        button[i + 1].disabled = true;
+      } else button[i + 1].disabled = false;
+
       localStorage.setItem("tag", JSON.stringify(tagList));
-      //readonly - нельзя удалить
-      disabledButton();      
     }
   });
 });
@@ -54,21 +59,4 @@ function removeTag(i) {
   tagList.splice(i, 1);
   localStorage.setItem("tag", JSON.stringify(tagList));
   displayTagList();
-}
-
-function disabledButton (e) {
-  // let button = document.querySelectorAll("button");
-
-  // for (let i = 0; i < button.length; i++) {
-  // button[i].addEventListener("click", function (e) {
-  //   console.log(e.target.getAttribute("id"));
-  //   let deleteTag = e.target.getAttribute("id");
-
-  //   tagList.forEach(function (item, i) {
-  //     if (`button_${i}` === deleteTag) {
-  //       button[i].disabled = true
-  //     }
-  //   });
-  // });
-  // }
 }
